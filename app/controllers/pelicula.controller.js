@@ -37,8 +37,8 @@ exports.create = (req, res) => {
 
 
 exports.findAll = (req, res) => {
-    const nombre = req.query.nombre;
-    var condition = nombre ? { nombre: { [Op.iLike]: `%${nombre}%` } } : null;
+    const nombrePelicula = req.query.nombrePelicula;
+    var condition = nombrePelicula ? { nombrePelicula: { [Op.iLike]: `%${nombrePelicula}%` } } : null;
 
     Pelicula.findAll({ where: condition })
         .then(data => {
@@ -114,7 +114,7 @@ exports.delete = (req, res) => {
         });
 };
 
-// Delete all Clients from the database.
+
 exports.deleteAll = (req, res) => {
     Pelicula.destroy({
         where: {},
