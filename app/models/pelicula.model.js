@@ -2,36 +2,33 @@
 module.exports = (sequelize, Sequelize) => {
 // usamos el sequelize.defina para "definir" el nombre de la entity en la BD, en este caso "cliente"
 // Usamos type.Sequelize para definir el tipo de datos de cada atributo de la entidad 
-    const Cliente = sequelize.define("cliente", {
-        nombre: {
+    const Pelicula = sequelize.define("pelicula", {
+        nombrePelicula: {
             type: Sequelize.STRING
         },
-        apellido: {
+        sinopsis: {
             type: Sequelize.STRING
         },
-        direccion: {
+        actores: {
             type: Sequelize.STRING
         },
-        correo: {
-            type: Sequelize.STRING
+        duracion: {
+            type: Sequelize.INTEGER
         },
         
-        telefono: {
+        tipo: {
             type: Sequelize.STRING
         },
-        ingreso:{
-            type: Sequelize.DATE
+        categoria:{
+            type: Sequelize.STRING
         },
-        status: {
-            type: Sequelize.BOOLEAN
+        añoLanzamiento: {
+            type: Sequelize.INTEGER
+        },
+        calificacion: {
+            type: Sequelize.FLOAT
         }
     });
-    Cliente.associate = (models)=>{
-        Cliente.hasMany(models.pedido,{
-            foreignKey:'id_cliente',
-            as: 'pedidos',
-            onDelete:'CASCADE'
-        });
-    };
-    return Cliente;
+  
+    return Pelicula;
 };
